@@ -21,5 +21,10 @@ public class Enemy : MonoBehaviour
         Vector3 lookDirection = (player.transform.position - transform.position).normalized; //Direction to look towards player
 
         enemyRb.AddForce(lookDirection * speed); //Vector3 coordinates we need to take to get to player, subtract (normalized) THEN multiply
+
+        if (transform.position.y < -10) //once enemy falls off, we destroy them
+        {
+            Destroy(gameObject);
+        }
     }
 }
